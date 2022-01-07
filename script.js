@@ -1,7 +1,15 @@
 $(function () {
-    $("#includedContent").load("./pages/homepage.html");
+    $("#includedContent").load("https://raw.githubusercontent.com/itsourov/kitbox-web/master/pages/homepage.html",function(){
+
+        document.getElementById('loading').classList.add("hidden");
+      });
+  
 });
 
 function loadPage(target) {
-    $("#includedContent").load(target);
+    document.getElementById('loading').classList.remove("hidden");
+    $("#includedContent").load(target,function(){
+
+        document.getElementById('loading').classList.add("hidden");
+      });
 }
